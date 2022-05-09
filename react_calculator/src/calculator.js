@@ -22,7 +22,27 @@ const Calculator = () => {
     
     
     
-    
+    // Function to add button face value to inputterm
+    function numberPress(props){
+        // Set showNumber to false to display the inputTerm
+        setShowNumber(false);
+        
+        // Extract the value associated with the button pressed
+        var nextDigit = props.target.value;
+        
+        // Obtain the current input Term 
+        var current = inputTerm;
+        
+        // Check to see if current is null if it is set it equalt to nextDigit
+        if(current === null){
+            current = nextDigit;
+        }else{
+            // Concatenate the current and nextDigit
+            current = current + nextDigit;
+        }
+        // Set the input term
+        setInputTerm(current);
+    }
     
     
     
