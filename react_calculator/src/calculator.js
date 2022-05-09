@@ -15,14 +15,21 @@ const Calculator = () => {
     // Term store the users term input
     const [inputTerm, setInputTerm] = useState(null);
     
-    // showNumber determines which number should be seen,
-    //  if true show results
-    //  if false show inputTerm
+    /**
+     * showNumber determines which number should be seen
+     * if true show results
+     * if false show inputTerm
+     * 
+     */ 
     const [showNumber, setShowNumber] = useState(true);
     
-    
-    
-    // Function to add button face value to inputterm
+   
+    /**
+     * Function to add button face value to inputterm
+     * 
+     * @param {type} props
+     * @returns {undefined}
+     */
     function numberPress(props){
         // Set showNumber to false to display the inputTerm
         setShowNumber(false);
@@ -42,6 +49,26 @@ const Calculator = () => {
         }
         // Set the input term
         setInputTerm(current);
+    }
+    
+    
+    /**
+     * Function to clear, set states
+     * 
+     * @returns {undefined}
+     */
+    function clear(){
+        // Clear the results state, set to 0
+        setResults(0);
+        
+        // Clear the inputTerm state, set to null
+        setInputTerm(null);
+        
+        // Set operand to null
+        setOperand(null);
+        
+        // Set showNumber to true to show the results, which should be 0
+        setShowNumber(true);
     }
     
     
@@ -74,7 +101,7 @@ const Calculator = () => {
                     <Col xs="2"><Button size="lg">x</Button></Col>
                 </Row>
                 <Row className="justify-content-center mt-2">
-                    <Col xs="2"><Button size="lg">C</Button></Col>
+                    <Col xs="2"><Button size="lg" onClick={clear}>C</Button></Col>
                     <Col xs="2"><Button size="lg" value="0" onClick={numberPress}>0</Button></Col>
                     <Col xs="2"><Button size="lg">=</Button></Col>
                     <Col xs="2"><Button size="lg">/</Button></Col>
